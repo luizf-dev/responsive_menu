@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Ubuntu;
+    background: #a53a3a;
+    height: 110vh;
+} 
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;       
+    padding: 25px 10%;
+    background: rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 25px 2px;
+}
+
+.menu nav{
+    display: flex;
+    gap: 34px;
+}
+
+.menu nav a{
+    text-decoration: none;
+    color: bisque;
+    font-size: 1.5em;
+}
+
+.menu nav a:hover{
+    border-bottom: 2px solid slateblue;
+    color: slateblue;
+    font-weight: 900;
+    text-shadow: 2px 1px 1px #000;
+}
+
+.menu .logo{
+    color: bisque;
+}
+
+.btn-show-menu{ 
+    display: none;
+}
+
+.bg-navColor{
+    background: rgba(138, 43, 226, 0.2);
+    transition: ease-in-out 0.5s;
+}
+
+@media(max-width: 750px){
+
+    .btn-show-menu{
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: bisque;
+        cursor: pointer;
+        z-index: 3;   
+        display: block;
+    }
+
+    .menu{
+        justify-content: center;
+        align-items: center; 
+        height: 70px;
+        z-index: 2;
+    }
+
+    .menu .logo{
+        position: fixed;
+        top: 20px;
+        left: 20px;
+    }
+
+    .menu nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        visibility: hidden;
+    }  
+
+    body.open .menu nav{
+        visibility: visible;
+    }
+
+    body.open .menu .logo{
+        visibility: hidden;
+    }
+
+    body.open .menu{
+        height: auto;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    body.open{
+        height: 100vh;
+    }
+
+    body.open .menu a{
+        animation: show 0.3s backwards;
+    }
+
+    .menu nav a{
+        text-decoration: none;
+        font-size: 28px;
+        font-weight: 700;
+        color: bisque;
+        padding: 10px 20px;
+        text-align: center;
+        opacity: 1;        
+    }   
+
+    @keyframes show{
+
+        0% {
+            opacity: 0;
+            translate: 0 -30px;
+        }
+
+        100%{
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    .backdrop{
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        height: 100vh;
+        aspect-ratio: 1 / 1;
+        translate: -50% -50%;
+        scale: 0;
+        opacity: 0;
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        z-index: 1;
+        transition: ease-out 0.9s;
+    }
+
+    body.open .backdrop{
+        opacity: 1;
+        scale: 5; 
+    }
+}
+
