@@ -2,7 +2,6 @@
 const showMenu = document.querySelector(".btn-show-menu");
 const closeMenu = document.getElementById("icon");
 const linksMenu = document.querySelectorAll(".navbar a");
-const body = document.getElementById("body");
 
 
 //*Adiciona um evento de clique ao botão do menu e adiciona a classe open
